@@ -25,8 +25,12 @@ public class Cycle {
         int end = 20;
         int sum;
 
-        if (start % 2 == 0) start++;
-        if (end % 2 == 0) end--;
+        if (start % 2 == 0) {
+            start++;
+        }
+        if (end % 2 == 0) {
+            end--;
+        }
         i = start;   //Технически, одна переменная лишняя. Но мне так показалось нагляднее.
         sum = i;
 
