@@ -18,16 +18,14 @@ public class ConditionalStatement {
         double haight = 1.9;
         if (haight < 1.8) {
             System.out.println("Рост средний или ниже");
-        }
-        else {
+        } else {
             System.out.println("Рост высокий");
         }
 
         char nameFirstLetter = 'M';
         if (nameFirstLetter == 'M') {
             System.out.println("Чувак на букву М");
-        }
-        else if (nameFirstLetter == 'I') {
+        } else if (nameFirstLetter == 'I') {
             System.out.println("Чувак на букву I");
         }
         else {
