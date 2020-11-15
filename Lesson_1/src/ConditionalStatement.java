@@ -27,8 +27,7 @@ public class ConditionalStatement {
             System.out.println("Чувак на букву М");
         } else if (nameFirstLetter == 'I') {
             System.out.println("Чувак на букву I");
-        }
-        else {
+        } else {
             System.out.println("Неизвестный чувак");
         }
     }
