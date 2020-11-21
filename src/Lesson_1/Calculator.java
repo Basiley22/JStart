@@ -1,15 +1,14 @@
 public class Calculator {
+
     /*
      *Арифметические действия над двумя целыми положительными числам
      *Предусмотрены операции: '+', '-', '*', '/', '^', '%'.
      */
     public static void main(String[] args) {
-
         //Начальные условия: два операнда и знак операции.
         int a = 4;
         int b = 3;
         char operation = '#';
-
         //Выполнение операций
         if (operation == '+') {
             System.out.println(" Sum: " + (a + b));
