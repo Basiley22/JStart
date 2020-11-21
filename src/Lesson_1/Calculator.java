@@ -10,7 +10,7 @@ public class Calculator {
         int b = 3;
         char operation = '#';
 
-        //Решение
+        //Выполнение операций
         if (operation == '+') {
             System.out.println(" Sum: " + (a + b));
         } else if (operation == '-') {
