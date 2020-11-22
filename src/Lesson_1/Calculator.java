@@ -5,10 +5,12 @@ public class Calculator {
      *Предусмотрены операции: '+', '-', '*', '/', '^', '%'.
      */
     public static void main(String[] args) {
+
         //Начальные условия: два операнда и знак операции.
         int a = 4;
         int b = 3;
         char operation = '#';
+
         //Выполнение операций
         if (operation == '+') {
             System.out.println(" Sum: " + (a + b));
@@ -20,7 +22,6 @@ public class Calculator {
             System.out.println(" Quotient : " + ((float) a / (float) b));
         } else if (operation == '^') {
             int result = 1;
-
             for (int i = 1; i <= b; i++) {
                 result *= a;
             }
