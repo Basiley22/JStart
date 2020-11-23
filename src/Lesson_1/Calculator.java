@@ -5,7 +5,6 @@ public class Calculator {
      *Предусмотрены операции: '+', '-', '*', '/', '^', '%'.
      */
     public static void main(String[] args) {
-
         //Начальные условия: два операнда и знак операции.
         int a = 4;
         int b = 3;

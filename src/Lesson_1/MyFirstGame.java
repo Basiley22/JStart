@@ -4,39 +4,41 @@ public class MyFirstGame {
      *Guessing the number from the range by binary search
      */
     public static void main(String[] args) {
-        final int TARGET_NUMBER = 70;
+        int targetNumber = 99;
         int startRange = 0;
         int endRange = 100;
+        int limitIteration = 10;
 
         //Checking for incorrect initial conditions
         if ((startRange >= endRange)                                            
-                | (TARGET_NUMBER < startRange)
-                | (TARGET_NUMBER > endRange)) {   
+                || (targetNumber < startRange)
+                || (targetNumber > endRange)) {   
             System.out.println("\n Некорректные условия задачи");
             return;                                                     //Exit of the work
         }
 
-        int trialNumber = endRange;
-        int iterationCounter = 0;
-        while (trialNumber != TARGET_NUMBER) {
-            iterationCounter++;
+
+        int playNumber = endRange;
+        int counter = 0;
+        while (playNumber != targetNumber) {
+            counter++;
 
             //Loop protection
-            if (iterationCounter > 10) {                        
+            if (counter > limitIteration) {                        
                 System.out.println("\n Извините, мы в зациклизме!");  
                 break;                                                  //Emergency exit of the work
             }
 
-            trialNumber = (int) ((startRange + (endRange - startRange) / 2));
-            if (trialNumber < TARGET_NUMBER) {
-                System.out.println(" " + trialNumber + " - Мало!");
-                startRange = trialNumber;
-            } else if(trialNumber > TARGET_NUMBER) {
-                    System.out.println(" " + trialNumber + " - Много!");
-                    endRange = trialNumber;
+            playNumber = (int) ((startRange + (endRange - startRange) / 2));
+            if (playNumber < targetNumber) {
+                System.out.println(" " + playNumber + " - Мало!");
+                startRange = playNumber;
+            } else if(playNumber > targetNumber) {
+                    System.out.println(" " + playNumber + " - Много!");
+                    endRange = playNumber;
             } 
         }
-        System.out.println( "\n Совпадение! - " + trialNumber + "\n"
-                        + " Сделано итераций - " + iterationCounter);
+        System.out.println( "\n Совпадение! - " + playNumber + "\n"
+                        + " Сделано итераций - " + counter);
     }
 }
