@@ -10,10 +10,10 @@ public class PersonTest {
 
         //person повзрослел на 5 лет
         System.out.println();
-        person.mature(5);
-        String work = person.changeWork("student");
+        person.setMature(5);
+        String work = person.setWork("student");
         System.out.println("Now " + name + " is " + person.getAge() + " years old.");
         System.out.println("He is a " + work);
-        System.out.println(person.grow(35) + "\n" + person.putWeight(40));
+        System.out.println(person.setGrow(35) + "\n" + person.setPutWeight(40));
     }
 }

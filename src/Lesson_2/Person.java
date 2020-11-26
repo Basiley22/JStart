@@ -27,30 +27,30 @@ public class Person {
 
     //Изменение состояния персонажа
     //Худеть
-    public int loseWeight(int lose) {                   
+    public int setLoseWeight(int lose) {                   
         weight -= lose;
         return weight;
     }
 
     //Толстеть
-    public int putWeight(int fat){                      
+    public int setPutWeight(int fat){                      
         weight += fat;
         return weight;
     }
 
     //Расти
-    public int grow(int grew) {                         
+    public int setGrow(int grew) {                         
         haight += grew;
         return haight;
     }
 
     //Взрослеть
-    public void mature(int years) {                     
+    public void setMature(int years) {                     
         age += years;
     }
 
     //Сменить работу
-    public String changeWork(String newWork) {          
+    public String setWork(String newWork) {          
         work = newWork;
         return work;
     }
