@@ -16,43 +16,58 @@ public class Person {
         weight = 28;
     }
 
-    //Действия персонажа
-    public void speak(String speech) {                  //Говорить
-        System.out.println(speech);
+    //Геттеры
+    public String getName() {
+        return name;
+
     }
-    public void move(String destination) {              //Идти к...
-        System.out.println("I go to the " + destination);
-    }
-    public void learn(String stdObject) {               //Учиться
-        System.out.println("I study " + stdObject);
+    public int getAge() {
+        return age;
     }
 
     //Изменение состояния персонажа
-    public int loseWeight(int lose) {                   //Худеть
+    //Худеть
+    public int loseWeight(int lose) {                   
         weight -= lose;
         return weight;
     }
-    public int putWeight(int fat){                      //Толстеть
+
+    //Толстеть
+    public int putWeight(int fat){                      
         weight += fat;
         return weight;
     }
-    public int grow(int grew) {                         //Расти
+
+    //Расти
+    public int grow(int grew) {                         
         haight += grew;
         return haight;
     }
-    public void mature(int years) {                     //Взрослеть
+
+    //Взрослеть
+    public void mature(int years) {                     
         age += years;
     }
-    public String changeWork(String newWork) {          //Сменить работу
+
+    //Сменить работу
+    public String changeWork(String newWork) {          
         work = newWork;
         return work;
     }
 
-    //Передача полей персонажа
-    public String getName() {
-        return name;
+    //Действия персонажа
+    //Говорить
+    public void speak(String speech) {                  
+        System.out.println(speech);
     }
-    public int getAge() {
-        return age;
+
+    //Идти к...
+    public void move(String destination) {              
+        System.out.println("I go to the " + destination);
+    }
+
+    //Учиться
+    public void learn(String stdObject) {               
+        System.out.println("I study " + stdObject);
     }
 }
