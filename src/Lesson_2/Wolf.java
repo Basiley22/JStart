@@ -4,43 +4,48 @@ public class Wolf {
     private String color;
     private int weight;
     private int age;
+    private int maxAge = 8;
 
-    //Setting
-    public void setAlias (String alias) {
+    //Setting - Getting
+    public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public String getAlias() {
+        return alias;
     }
 
     public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    //Getting
-    public String getAlias() {
-        return alias;
-    }
-
     public String getSex() {
         return sex;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getColor() {
         return color;
     }
 
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
     public int getWeight() {
         return weight;
+    }
+
+    public void setAge(int age) {
+        if (age > maxAge) {
+            System.out.println(age + " years - wolves don't live that long \n Enter the correct age.");
+            this.age = -1;
+        } else {
+            this.age = age;
+        }
     }
 
     public int getAge() {
