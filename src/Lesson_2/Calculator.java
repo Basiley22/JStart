@@ -3,7 +3,7 @@ public class Calculator {
      *Арифметические действия над двумя целыми положительными числами (переменные "a" и "b")
      *Предусмотрены операции: '+', '-', '*', '/', '^', '%'.
      */
-    public void calculation (int a, int b, char operation) {
+    public void calculate(int a, int b, char operation) {
         switch (operation) {
             case '+':
                 System.out.println(" Sum: " + (a + b));
