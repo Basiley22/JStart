@@ -8,14 +8,11 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Calculator calc = new Calculator();
-        boolean firstEntry = true;
         
         //Рабочий цикл
+        boolean exit = false;
         do {
-            if (!firstEntry) {
-                System.out.println(" Working again.");
-            }
-
+            
             //Ввод данных
             System.out.println("\n Enter first number (integer only!)");
             int a = scan.nextInt();
@@ -26,11 +23,26 @@ public class CalculatorTest {
         
             //Вычисление
             calc.calculate(a, b, operation);
-            firstEntry = false;
 
             //Запрос на выход
-            System.out.println("\n Exit from work? (y = YES / any symbol = NO)");
-        } while (!(scan.next().equalsIgnoreCase("y")));
-        System.out.println(" Bye-bye!");
+            scan.nextLine();
+            boolean correctAnswer;
+            do {
+                System.out.println("\n Exit from work? (y = YES / n = NO)");
+                String answer = scan.nextLine();
+                if (answer.equals("y")) {
+                    correctAnswer = true;
+                    exit = true;
+                    System.out.print(" Bye-bye!");
+                } else if (answer.equals("n")) {
+                    correctAnswer = true;
+                    exit = false;
+                    System.out.println(" Working again!");
+                } else {
+                    correctAnswer = false;
+                    System.out.print(" The answer is not clear.");
+                }
+            } while (!correctAnswer);
+        } while (!exit);
     }
 }
