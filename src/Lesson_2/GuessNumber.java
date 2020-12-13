@@ -1,7 +1,7 @@
 import java.lang.Math;
 
 /*Создает случайное число secretNumber в диапазоне от lowerLimit включительно до upperLimit исключительно.
- *Принимает пробное число playNumber, сравнивает его с secretNumber и отсылает сообщение
+ *Принимает от игрока число playNumber, сравнивает его с secretNumber и отсылает сообщение
  */
 public class GuessNumber {
     private int lowerLimit = 0;
@@ -10,7 +10,7 @@ public class GuessNumber {
 
     //Конструктор
     GuessNumber() {
-        generSecret();
+        secretNumber = (int)(Math.random() * (upperLimit - lowerLimit)) + lowerLimit;
     }
     
     //Геттеры и сеттеры
@@ -28,15 +28,6 @@ public class GuessNumber {
 
     public int getUpperLimit() {
         return this.upperLimit;
-    }
-
-    public int getSecretNumber() {
-        return secretNumber;
-    }
-
-    //Генерация секретного числа
-    public void generSecret() {
-        secretNumber = (int)(Math.random() * (upperLimit - lowerLimit)) + lowerLimit;
     }
 
     //Проверка числа игрока на равенство секретному

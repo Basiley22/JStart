@@ -1,26 +1,26 @@
 public class GuessNumberTest {
     public static void main(String[] args) {
         GuessNumber testGame = new GuessNumber();
-        Player p1 = new Player("Irenka", "manual");
-        Player p2 = new Player("Lucky", "autoBinary");
+        Player player1 = new Player("Crazy", "manual");
+        Player player2 = new Player("Lucky", "autoBinary");
 
         //Игра до победы
-        boolean p1Finish = false;
-        boolean p2Finish = false;
+        boolean player1Finish = false;
+        boolean player2Finish = false;
         int count = 0;
-        while (!p1Finish && !p2Finish) {
+        while (!player1Finish && !player2Finish) {
             count++;
-            p1Finish = p1.guess(testGame);
-            p2Finish = p2.guess(testGame);
+            player1Finish = player1.guess(testGame);
+            player2Finish = player2.guess(testGame);
         }
 
-        //Определить кто победил
-        if (p1Finish && p2Finish) {
-            System.out.println(" Ничья: " + count + " итераций");
-        } else if (p1Finish) {
-            System.out.println(" Победил " + p1.getName() + ": " + count + " итераций");
-        } else if (p2Finish) {
-            System.out.println(" Победил " + p2.getName() + ": " + count + " итераций");
+        //Выяснение кому досталась победа
+        if (player1Finish && player2Finish) {
+            System.out.println(" Ничья: " + count + " попыток");
+        } else if (player1Finish) {
+            System.out.println(" Победил " + player1.getName() + ": " + count + " попыток");
+        } else if (player2Finish) {
+            System.out.println(" Победил " + player2.getName() + ": " + count + " попыток");
         }else {
             System.out.println(" Ошибка определения победителя");
         }

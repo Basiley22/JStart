@@ -1,17 +1,11 @@
 import java.util.Scanner;
 
 public class Player {
-    public boolean finish;
     private String name;
     private String playMethod;
-    private String tryResult = "First try";
-    private int lowLim = -1;
-    private int uppLim = -1;
-    private int tryNumber = -1;
-    private int tryCount;
     private Scanner scan = new Scanner(System.in);
 
-    //Конструктор
+    //Конструктор. Задает имя игрока и метод его игры
     Player(String name, String playMethod) {
         this.name = name;
         this.playMethod = playMethod;
@@ -21,12 +15,23 @@ public class Player {
         return name;
     }
 
+    //Игра
+    private String tryResult = "First try";
+    private int lowLimit;
+    private int uppLimit;
+    private int tryNumber = -1;
+    private int tryCount;
+    public boolean finish;
+
     public boolean guess(GuessNumber game) {
+
+        //Инициализация игрового диапазона
         if (++tryCount == 1) {
-            lowLim = game.getLowerLimit();
-            uppLim = game.getUpperLimit();
+            lowLimit = game.getLowerLimit();
+            uppLimit = game.getUpperLimit();
         }
         
+        //Предложение ввести число с указанием ввода и результата предыдущей попытки
         System.out.println("\n " + name + ", enter a number");
         System.out.println(" Last try: " + tryNumber + ". Result of a last try: " + tryResult);
 
@@ -45,15 +50,15 @@ public class Player {
         } else if (playMethod == "autoBinary") {
 
                 //Автоматический бинарный поиск
-                tryNumber = (int) ((lowLim + (uppLim - lowLim) / 2));
+                tryNumber = (int) ((lowLimit + (uppLimit - lowLimit) / 2));
                 System.out.println(name + " enter " + tryNumber);
                 tryResult = game.checkNumber(tryNumber);
 
                 if (tryResult == "Too small!") {
-                    lowLim = tryNumber;
+                    lowLimit = tryNumber;
                     return finish = false;
                 } else if (tryResult == "Too big!") {
-                    uppLim = tryNumber;
+                    uppLimit = tryNumber;
                     return finish = false;
                 } else if (tryResult == "Concided!") {
                     System.out.println(" Yes! " + tryNumber + " !!!");
