@@ -49,26 +49,26 @@ public class Player {
             }
         } else if (playMethod == "autoBinary") {
 
-                //Автоматический бинарный поиск
-                tryNumber = (int) ((lowLimit + (uppLimit - lowLimit) / 2));
-                System.out.println(name + " enter " + tryNumber);
-                tryResult = game.checkNumber(tryNumber);
+            //Автоматический бинарный поиск
+            tryNumber = (int) ((lowLimit + (uppLimit - lowLimit) / 2));
+            System.out.println(name + " enter " + tryNumber);
+            tryResult = game.checkNumber(tryNumber);
 
-                if (tryResult == "Too small!") {
-                    lowLimit = tryNumber;
-                    return finish = false;
-                } else if (tryResult == "Too big!") {
-                    uppLimit = tryNumber;
-                    return finish = false;
-                } else if (tryResult == "Concided!") {
-                    System.out.println(" Yes! " + tryNumber + " !!!");
-                    return finish = true;
-                } else {
+            if (tryResult == "Too small!") {
+                lowLimit = tryNumber;
+                return finish = false;
+            } else if (tryResult == "Too big!") {
+                uppLimit = tryNumber;
+                return finish = false;
+            } else if (tryResult == "Concided!") {
+                System.out.println(" Yes! " + tryNumber + " !!!");
+                return finish = true;
+            } else {
 
-                    //Невозможный вариант
-                    System.out.println("Непредусмотренный результат game.checkNumber");
-                    return finish = false;
-                }
+                //Невозможный вариант
+                System.out.println("Непредусмотренный результат game.checkNumber");
+                return finish = false;
+            }
         }
         return false; // Не понятно, для чего этот оператор. Без него возникает ошибка: "missing return statement"
     }
