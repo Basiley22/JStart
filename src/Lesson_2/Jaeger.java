@@ -10,18 +10,16 @@ public class Jaeger {
 
     //Constructor
     Jaeger() {
-        energyLevel = 0;
-        ammunitionLevel = 0;
         armorLevel = 100;
     }
 
     //Set & Get
     public void setModelName(String model) {
-        modelName = model;
+        this.modelName = model;
     }
 
     public String getModelName() {
-        return modelName;
+        return this.modelName;
     }
 
     public void setHeight(float height) {
@@ -29,7 +27,7 @@ public class Jaeger {
     }
 
     public float getHeight() {
-        return height;
+        return this.height;
     }
 
     public void setWeight(float weight) {
@@ -37,7 +35,7 @@ public class Jaeger {
     }
     
     public float getWeight() {
-        return weight;
+        return this.weight;
     }
 
     public void setSpeed(int speed) {
@@ -45,29 +43,29 @@ public class Jaeger {
     }
 
     public int getSpeed() {
-        return speed;
+        return this.speed;
     }
 
-    public void setVolleyPower(int volPow) {
-        volleyPower = volPow;
+    public void setVolleyPower(int volleyPower) {
+        this.volleyPower = volleyPower;
     }
 
     public int getVolleyPower() {
-        return volleyPower;
+        return this.volleyPower;
     }
 
     //Servise
     public void replenAmmunition() {
-        ammunitionLevel = 100;
+        this.ammunitionLevel = 100;
         System.out.println(" Ammunition replenished!");
     }
 
     public void chargeBattery() {
-        energyLevel = 100;
+        this.energyLevel = 100;
         System.out.println(" Battery charged!");
     }
 
-    //Action
+    //Actions
     public void move() {
         System.out.println(" Бежим!");
     }

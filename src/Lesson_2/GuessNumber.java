@@ -1,43 +1,49 @@
 import java.lang.Math;
 
-/*Создает случайное число secretNumber в диапазоне от lowerLimit включительно до upperLimit исключительно.
- *Принимает от игрока число playNumber, сравнивает его с secretNumber и отсылает сообщение
- */
 public class GuessNumber {
     private int lowerLimit = 0;
     private int upperLimit = 100;
     private int secretNumber;
 
-    //Конструктор
-    GuessNumber() {
+    //Игра
+    public void play(Player player1, Player player2) {
+        String resultPlayer1 = "";
+        String resultPlayer2 = "";
         secretNumber = (int)(Math.random() * (upperLimit - lowerLimit)) + lowerLimit;
-    }
-    
-    //Геттеры и сеттеры
-    public void setLowerLimit(int lowLim) {
-        this.lowerLimit = lowLim;
+
+        //Цикл "Попытка = проверка" до первого попадания в секретное число.
+        String victor = "";
+        boolean endGame = false;
+        int count = 0;
+        while (true) {
+            count++;
+
+            resultPlayer1 = checkNumber(player1.guess());
+            System.out.println("        " + resultPlayer1);
+            if (resultPlayer1 == "Точно!") {
+                victor = player1.getName();
+                break;
+            }
+            
+            resultPlayer2 = checkNumber(player2.guess());
+            System.out.println("        " + resultPlayer2);
+            if (resultPlayer2 == "Точно!") {
+                victor = player2.getName();
+                break;
+                
+            }
+        }
+        System.out.println(" Победил " + victor + ": " + count + " попыток");
     }
 
-    public int getLowerLimit() {
-        return this.lowerLimit;
-    }
-
-    public void setUpperLimit(int uppLim) {
-        this.upperLimit = uppLim;
-    }
-
-    public int getUpperLimit() {
-        return this.upperLimit;
-    }
-
-    //Проверка числа игрока на равенство секретному
-    public String checkNumber(int playNum) {
-        if (playNum < secretNumber) {
-            return "Too small!";
-        } else if (playNum > secretNumber) {
-            return "Too big!";
+    //Проверка числа, предложенного игроком
+    private String checkNumber(int tryNum) {
+        if (tryNum < secretNumber) {
+            return "Мало!";
+        } else if (tryNum > secretNumber) {
+            return "Много!";
         }else {
-            return "Concided!";
+            return "Точно!";
         }
     }
 }

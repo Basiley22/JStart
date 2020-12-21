@@ -1,28 +1,38 @@
+import java.util.Scanner;
+
 public class GuessNumberTest {
     public static void main(String[] args) {
-        GuessNumber testGame = new GuessNumber();
-        Player player1 = new Player("Crazy", "manual");
-        Player player2 = new Player("Lucky", "autoBinary");
+        Scanner scan = new Scanner(System.in);
+        GuessNumber game = new GuessNumber();
+        Player player1 = new Player(1);
+        Player player2 = new Player(2);
+        
 
-        //Игра до победы
-        boolean player1Finish = false;
-        boolean player2Finish = false;
-        int count = 0;
-        while (!player1Finish && !player2Finish) {
-            count++;
-            player1Finish = player1.guess(testGame);
-            player2Finish = player2.guess(testGame);
-        }
+        //Игра, возможно с повтором
+        boolean repeatGame;
+        do {
+            repeatGame = false;
 
-        //Выяснение кому досталась победа
-        if (player1Finish && player2Finish) {
-            System.out.println(" Ничья: " + count + " попыток");
-        } else if (player1Finish) {
-            System.out.println(" Победил " + player1.getName() + ": " + count + " попыток");
-        } else if (player2Finish) {
-            System.out.println(" Победил " + player2.getName() + ": " + count + " попыток");
-        }else {
-            System.out.println(" Ошибка определения победителя");
-        }
+            //Собственно игра
+            System.out.println();
+            game.play(player1, player2);
+
+            //Запрос команды на повтор или прекращение игры
+            char commandRepeat;
+            do {
+                System.out.print("\n Играть еще раз? (y/n): ");
+                commandRepeat = scan.nextLine().charAt(0);
+                switch (commandRepeat) {
+                    case 'y':
+                        repeatGame = true;
+                        break;
+                    case 'n':
+                        System.out.println("\n Бай-Бай!");
+                        break;
+                    default:
+                        System.out.println(" Команда непонятна");
+                }
+            } while (commandRepeat != 'n' && commandRepeat != 'y');
+        } while (repeatGame);
     }
 }
