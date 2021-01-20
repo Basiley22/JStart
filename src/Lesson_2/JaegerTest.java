@@ -1,22 +1,32 @@
 public class JaegerTest {
     public static void main(String[] args) {
-        Jaeger cadet1 = new Jaeger();
 
-        cadet1.setModelName("Markus0");
-        cadet1.setHeight(5.2f);
-        cadet1.setWeight(2.5f);
-        cadet1.setSpeed(20);
-        cadet1.setVolleyPower(10);
+        //String callSign, float hight, float weight, int speed, int energyLevel, int ammoNumber
+        Jaeger jag1 = new Jaeger("Cadet", 2.0f, 10.0f, 20, 20, 0);
+        Jaeger jag2 = new Jaeger("Cornet", 2.2f, 11.5f, 18, 25, 0);
+
+        System.out.println("\n Параметры после инициализации");
+        jag1.showParameters();
+        jag2.showParameters();
         
-        System.out.println(cadet1.getModelName());
-        System.out.println(cadet1.getHeight());
-        System.out.println(cadet1.getWeight());
-        System.out.println(cadet1.getSpeed());
+        System.out.println("\n Заправка");
+        jag1.fillUp();
+        jag2.fillUp();
 
-        cadet1.replenAmmunition();
-        cadet1.chargeBattery();
-        cadet1.drift();
-        cadet1.move();
-        cadet1.fire();
+        System.out.println("\n Параметры после заправки");
+        jag1.showParameters();
+        jag2.showParameters();
+        
+        System.out.println("\n Бой");
+        jag1.drift();
+        jag2.drift();
+        jag1.move(10);
+        jag1.fire(15);
+        jag2.move(20);
+        jag2.fire(5);
+
+        System.out.println("\n Параметры после боя");
+        jag1.showParameters();
+        jag2.showParameters();
     }
 }

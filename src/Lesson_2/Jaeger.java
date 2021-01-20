@@ -1,80 +1,74 @@
 public class Jaeger {
-    private String modelName;
+    private String callSign;
     private float height;
     private float weight;
     private int speed;
-    private int volleyPower;
-    private int armorLevel;
     private int energyLevel;
-    private int ammunitionLevel;
+    private int ammoNumber;
 
     //Constructor
-    Jaeger() {
-        armorLevel = 100;
-    }
-
-    //Set & Get
-    public void setModelName(String model) {
-        this.modelName = model;
-    }
-
-    public String getModelName() {
-        return this.modelName;
-    }
-
-    public void setHeight(float height) {
+    Jaeger(String callSign, float height, float weight, int speed, int energyLevel, int ammoNumber) {
+        this.callSign = callSign;
         this.height = height;
+        this.weight = weight;
+        this.speed = speed;
+        this.energyLevel = energyLevel;
+        this.ammoNumber = ammoNumber;
+    }
+
+    //Get
+    public String getCallSign() {
+        return callSign;
     }
 
     public float getHeight() {
-        return this.height;
+        return height;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-    
     public float getWeight() {
-        return this.weight;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
+        return weight;
     }
 
     public int getSpeed() {
-        return this.speed;
+        return speed;
     }
 
-    public void setVolleyPower(int volleyPower) {
-        this.volleyPower = volleyPower;
+    public int getEnergyLevel() {
+        return energyLevel;
     }
 
-    public int getVolleyPower() {
-        return this.volleyPower;
+    public int getAmmoNumber() {
+        return ammoNumber;
     }
 
-    //Servise
-    public void replenAmmunition() {
-        this.ammunitionLevel = 100;
-        System.out.println(" Ammunition replenished!");
-    }
+    public void showParameters() {
+            System.out.println(callSign);
+            System.out.println(" Высота: " + height);
+            System.out.println(" Вес: " + weight);
+            System.out.println(" Скорость: " + speed);
+            System.out.println(" Энергия: " + energyLevel);
+            System.out.println(" Боеприпасы: " + ammoNumber);
+        }
 
-    public void chargeBattery() {
-        this.energyLevel = 100;
-        System.out.println(" Battery charged!");
+    //Service
+    public void fillUp() {
+        ammoNumber = 100;
+        energyLevel = 100;
+        System.out.println(callSign + "\n Батареи заряжены, боеприпасы пополнены!");
     }
 
     //Actions
-    public void move() {
-        System.out.println(" Бежим!");
-    }
-
     public void drift() {
-        System.out.println(" Работаем!");
+        System.out.println(callSign + ": Работаем!");
     }
 
-    public void fire() {
-        System.out.println(" Бах!");
+    public void move(int distance) {
+        System.out.println(callSign + ": Бежим!");
+        energyLevel -= (distance * speed * weight * 0.005);
+    }
+
+    public void fire(int burst) {
+        System.out.println(callSign + ": Трададада!");
+        ammoNumber -= burst;
     }
 }
