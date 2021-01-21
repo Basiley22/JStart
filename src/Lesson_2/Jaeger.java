@@ -41,14 +41,15 @@ public class Jaeger {
         return ammoNumber;
     }
 
-    public void showParameters() {
-            System.out.println(callSign);
-            System.out.println(" Высота: " + height);
-            System.out.println(" Вес: " + weight);
-            System.out.println(" Скорость: " + speed);
-            System.out.println(" Энергия: " + energyLevel);
-            System.out.println(" Боеприпасы: " + ammoNumber);
-        }
+    @Override
+    public String toString() {
+        return callSign
+                + "\n Высота " + height
+                + "\n Вес " + weight
+                + "\n Скорость " + speed
+                + "\n Энергия " + energyLevel
+                + "\n Боеприпасы " + ammoNumber;
+    }
 
     //Service
     public void fillUp() {
